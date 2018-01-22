@@ -20,9 +20,14 @@
     .container {
       display: grid;
       grid-gap: 20px;
-      border: 10px solid var(--yellow);
-      grid-template-columns: repeat(auto-fit, 150px);
+      border: 10px solid var(--purple);
+      /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      
+      /* no empty space, fills it up, prettier */
+      /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  */
+      grid-template-columns: fit-content(100px) 150px 150px 150px;
     }
+
   </style>
 </body>
 

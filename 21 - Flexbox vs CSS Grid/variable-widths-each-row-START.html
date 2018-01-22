@@ -21,11 +21,20 @@
     <div class="item">Short</div>
   </div>
   <style>
-    .flex-container {}
+
+    /* flexbox */
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid black;
+      margin-right: -10px;
+    }
 
     .flex-container>* {
-      margin: 10px;
+      margin-right: 10px;
+      flex: 1;
     }
+    
   </style>
 </body>
 

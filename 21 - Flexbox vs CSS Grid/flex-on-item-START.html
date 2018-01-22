@@ -21,7 +21,9 @@
 
   <style>
     .controls {
+      display: grid;
       margin: 200px 0;
+      grid-template-columns: auto auto auto 1fr auto auto;
     }
 
     .scrubber {
@@ -29,7 +31,14 @@
       height: 10px;
       min-width: 100px;
       border-radius: 10px;
+      /* flex: 1; */
     }
+
+    .controls {
+      align-items: center;
+      /* display: flex; */
+    }
+
   </style>
 
 </body>
