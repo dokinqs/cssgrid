@@ -1,3 +1,10 @@
+<img width="290" alt="cssgrid20sshot" src="https://user-images.githubusercontent.com/22225317/35252041-7c91d89c-ffac-11e7-8348-b5fc222dd9ab.png"> <img width="290" alt="cssgrid24sshot" src="https://user-images.githubusercontent.com/22225317/35252042-7ca6f5ec-ffac-11e7-8920-bc2ca6c9cdff.png"><img width="285" alt="cssgrid25sshot" src="https://user-images.githubusercontent.com/22225317/35252043-7cb67454-ffac-11e7-9835-ed77a411e15a.png">
+
+Demos:
+[(20 - CSS Grid Image Gallery)](https://dokinqs.github.io/cssgrid/20%20-%20CSS%20Grid%20Image%20Gallery/image-gallery-START.html) ~~~~~
+[(24 - Responsive Website)](https://dokinqs.github.io/cssgrid/24%20-%20Responsive%20Website/responsive-START.html) ~~~~~~ 
+[(25 - Full Bleed Blog Layout)](https://dokinqs.github.io/cssgrid/25%20-%20Full%20Bleed%20Blog%20Layout/full-bleed-blog-START.html) ~~~~
+
 ![](https://res.cloudinary.com/wesbos/image/upload/v1515524452/GRID-social-share_wlfzk3.png)
 
 # CSS Grid Video Course
