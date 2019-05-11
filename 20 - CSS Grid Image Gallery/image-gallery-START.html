@@ -3,14 +3,21 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Karen Zhao">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CSS Grid Image Gallery!</title>
+  <title>CSS Grid Doge Gallery</title>
 </head>
 
 <body>
+  <a href="https://github.com/dokinqs" target="_blank">
+    <h1>Shiba or Bread</h1>
+  </a>
 
-  <h1>Image Gallery</h1>
+  <!-- images loaded randomly with js -->
+  <section class="gallery"></section>
+
+  <!-- when click on image -->
   <div class="overlay">
     <div class="overlay-inner">
       <button class="close" href="close">× Close</button>
@@ -18,51 +25,31 @@
     </div>
   </div>
 
-
-<!-- <a href="#openimg"> -->
-  <section class="gallery">
-  </section>
-<!-- </a> -->
-
+  <a href="https://www.karenmzhao.tech" target="_blank">
+    <footer>Karen Zhao, Doge Expert</footer>
+  </a>
 
   <style>
-    h1 {
-      text-align: center;
-    }
-
     * {
       box-sizing: border-box;
+      /* when clicked, no color underline nor blue border */
+      text-decoration: none;
+      outline: none;
     }
-
     body {
-      padding: 50px;
-      font-family: sans-serif;
-      background: linear-gradient(to right, rgb(241, 144, 165), rgb(50, 22, 126));
+      padding: 20px;
+      font-family: 'Comic Sans MS', sans-serif;
+      letter-spacing: 5px;
+      background: #2C3A32;
+    }
+    h1 {
+      text-align: center;
+      margin: 0 0 4vh;
+      font-size: 7vh;
+      color: #F0C69C;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0 0 5px 0;
-    }
-
-    p {
-      margin: 0 0 20px 0;
-    }
-
-    .close {
-      background: none;
-      color: black;
-      border: 0;
-    }
-
-    .close:hover {
-      cursor: pointer;
-    }
-
+    /* pictures */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, 100px);
@@ -76,90 +63,102 @@
       grid-template-columns: 1;
       grid-template-rows: 1;
     }
-
     .item img {
+      /* stretch from one end to the other */
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+    .item.h2 {
+      grid-column: span 2;
+    }
+    .item.h3 {
+      grid-column: span 3;
+    }
+    .item.h4 {
+      grid-column: span 4;
+    }
+    .item.v2 {
+      grid-row: span 2;
+    }
+    .item.v3 {
+      grid-row: span 3;
+    }
+    .item.v4 {
+      grid-row: span 4;
+    }
 
     .item__overlay {
-      background: #ffc60032;
+      /* View text */
+      /* appears from top to bottom */
+      transform: translateY(-100%);
+      background: rgba(255, 198, 0, 0.196);
+      transition: 0.2s;
+      display: grid;
       grid-column: 1 / -1;
       grid-row: 1 / -1;
       position: relative;
-      display: grid;
+      /* x-axis row */
       justify-items: center;
+      /* y-axis column */
       align-items: center;
-      transition: 0.2s;
-      transform: translateY(100%);
     }
-
     .item__overlay button {
       background: none;
       border: 2px solid white;
       color: white;
       text-transform: uppercase;
-      background: rgba(0, 0, 0, 0.7);
       padding: 5px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
     }
-
     .item:hover .item__overlay {
       transform: translateY(0);
     }
 
 
-    .item.v2 {
-      grid-row: span 2;
-    }
-
-    .item.v3 {
-      grid-row: span 3;
-    }
-
-    .item.v4 {
-      grid-row: span 4;
-    }
-
-    .item.h2 {
-      grid-column: span 2;
-    }
-
-    .item.h3 {
-      grid-column: span 3;
-    }
-
-    .item.h4 {
-      grid-column: span 4;
-    }
-
+    /* focused image when clicked */
     .overlay {
+      /* default not open before click*/
+      display: none;
       position: fixed;
       background: rgba(0, 0, 0, 0.7);
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-      display: none;
       z-index: 2;
     }
-
     .overlay.open {
       display: grid;
       align-items: center;
       justify-items: center;
     }
-
     .overlay-inner {
-      background: white;
-      width: 700px;
+      background: black;
+      width: 90vh;
       padding: 20px;
     }
-
     .overlay img {
       width: 100%;
+    }
+
+    .close {
+      border: 0;
+      color: white;
+      background: black;
+    }
+    .close:hover {
+      cursor: pointer;
+    }
+
+
+    footer {
+      color: white;
+      text-align: center;
+      margin-top: 30px;
     }
   </style>
 
@@ -169,10 +168,11 @@
     const overlayImage = overlay.querySelector('img');
     const overlayClose = overlay.querySelector('.close');
 
+    // destructuring, random horiz and vert values
     function generateHTML([h, v]) {
       return `
         <div class="item h${h} v${v}">
-          <img src="images/${randomNumber(12)}.jpg">
+          <img src="images/${randomNumber(20)}.jpg">
           <div class="item__overlay">
             <button>View →</button>
           </div>
@@ -181,59 +181,54 @@
     }
 
     function randomNumber(limit) {
-      return Math.floor(Math.random() * limit) +1;
+      return Math.floor(Math.random() * limit) + 1;
     }
 
-    function handleClick(e){
-      console.log(e.currentTarget);
-      const src = e.currentTarget.querySelector('img').src;
-      overlayImage.src = src;
+    function handleClick(e) {
+      // console.log(e.currentTarget);
+      const overlaySrc = e.currentTarget.querySelector('img').src;
+      overlayImage.src = overlaySrc;
       overlay.classList.add('open');
-      
     }
 
     function closeImg() {
-      console.log('closed image view');
+      // console.log('closed image view');
       overlay.classList.remove('open');
-      // if (location.hash == '#openimg') {
-      //   location.hash = '';
-      // }
     }
 
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode == 27) {
-        window.closeImg();
-        console.log('using escape');
-      }
-    });
-
-    const digits = Array.from({ length: 50 }, () => [randomNumber(4), randomNumber(4)]).concat([[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]);
+    // add small images to fill empty space
+    const digits = Array.from({ length: 50 }, 
+      () => [randomNumber(4), randomNumber(4)]).concat([
+        [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1]
+    ]);
 
     const html = digits.map(generateHTML).join('');
     gallery.innerHTML = html;
 
     const items = document.querySelectorAll('.item');
+    items.forEach(it => it.addEventListener('click', handleClick));
 
-    items.forEach(item => item.addEventListener('click', handleClick));
 
+    // closing the image
     overlayClose.addEventListener('click', closeImg);
 
-    // closes image view when click anywhere on page
-    // how to close only when click on area that's not the image?
+    // close image if press escape key
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 27) {
+        window.closeImg();
+        // console.log('escaped');
+      }
+    });
 
-    // var modal = document.querySelector('.overlay');
-    // modal.addEventListener('click', (e) => {
-    //   closeImage();
-    //   console.log('closed image view');
-    // }, false);    // var modal = document.querySelector('.overlay');
-    // modal.addEventListener('click', (e) => {
-    //   closeImage();
-    //   console.log('closed image view');
-    // }, false);
+    // closes image view when click outisde of image
+    let modal = document.querySelector('.overlay');
+    modal.addEventListener('click', closeImg);
 
-    // modal.children[0].addEventListener('click', (e) => {
-    //   e.stopPropagation();
-    // }, false);
+    // doesn't close if press on image 
+    modal.children[0].addEventListener('click', (e) => {
+      // cuz child div in parent div, both get clicked, so stop propogation doesn't fire parent div's event
+      e.stopPropagation();
+    }, false);
 
   </script>
 </body>
