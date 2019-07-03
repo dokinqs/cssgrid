@@ -57,11 +57,11 @@ img {
   margin: 0;
 }
 
-.cta 1 {
+.cta1 {
   grid-area: cta1;
 }
 
-.cta 2 {
+.cta2 {
   grid-area: cta2;
 }
 
@@ -216,5 +216,11 @@ img {
       "hero"
       "cta1"
       "cta2"  
+  }
+}
+
+@media (max-width: 960px) {
+  .menu a {
+    font-size: 12px;
   }
 }
