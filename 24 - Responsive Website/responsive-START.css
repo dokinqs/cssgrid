@@ -3,7 +3,7 @@ body {
 }
 
 button {
-  background: #ffc600;
+  background: #fff;
   border: 0;
   padding: 10px 20px;
 }
@@ -30,7 +30,12 @@ img {
 .hero {
   grid-area: hero;
   min-height: 400px;
-  background: white url(images/taco.jpg);
+  background-image: 
+    linear-gradient(
+      rgba(108, 92, 29, 0.5),
+      rgba(108, 92, 29, 0.5)
+    ),
+    url(images/taco.jpg);
   background-size: cover;
   background-position: bottom right;
   padding: 50px;
@@ -41,12 +46,19 @@ img {
   align-items: start;
 }
 
-.hero > * {
-  background: var(--purple);
+.hero h1  {
+  color: white;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.hero p  {
+  color: white;
+  font-weight: 200;
 }
 
 .cta {
-  background: var(--purple);
+  background: var(--yellow);
   display: grid;
   align-items: center;
   justify-items: center;
@@ -80,7 +92,7 @@ img {
 }
 
 .menu a {
-  background: var(--purple);
+  background: var(--yellow);
   display: block;
   text-decoration: none;
   padding: 10px;
@@ -152,7 +164,7 @@ img {
   display: block;
   content: '';
   height: 10px;
-  background: linear-gradient(to var(--direction, left), var(--purple), transparent);
+  background: linear-gradient(to var(--direction, left), var(--yellow), transparent);
 }
 
 .gallery h2:after {
@@ -169,7 +181,6 @@ img {
     display: block;
     margin-bottom: 10px;
   }
-
   
   .menu ul {
     max-height: 0;
@@ -178,22 +189,20 @@ img {
     transition: all 0.2s;
   }
 
+  [aria-expanded="false"] .close {
+    display: none;
+  }
+
+  [aria-expanded="true"] .open {
+    display: none;
+  }
   [aria-expanded="true"] ~ ul {
     display: grid;
     max-height: 500px;
     transform: rotate(0);
   }
-
-  [aria-expanded="false"] .close {
-    display: none;
-  }
-
   [aria-expanded="true"] .close {
     display: inline-block;
-  }
-
-  [aria-expanded="true"] .open {
-    display: none;
   }
 }
 
@@ -216,11 +225,5 @@ img {
       "hero"
       "cta1"
       "cta2"  
-  }
-}
-
-@media (max-width: 960px) {
-  .menu a {
-    font-size: 12px;
   }
 }

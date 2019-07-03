@@ -1,12 +1,5 @@
-/*
-  Oh Hello!
-
-  These are some base styles so that our tutorial looks good.
-
-  Let's go through the important bits real quick
-*/
 :root {
-  --purple: #e6b9f8;
+  --pink: #fbcde9;
   --black: #555454;
   --yellow: #ffee8b;
 }
@@ -35,14 +28,14 @@ html {
 }
 
 body {
+  background: white;
   background-image: url("./images/topography.svg"),
-    linear-gradient(110deg, #e68499, #6237d8);
+    linear-gradient(280deg, 
+    #ff4e50, #f9d423);
   background-size: 340px, auto;
   min-height: calc(100vh - 100px);
   margin: 50px;
-  /* background: white; */
   background-position: fixed;
-  letter-spacing: -1px;
 }
 
 h1,
@@ -61,7 +54,7 @@ h6 {
   border: 5px solid rgba(0, 0, 0, 0.03);
   border-radius: 3px;
   font-size: 35px;
-  background-color: var(--purple);
+  background-color: var(--pink);
 }
 
 .item p {
