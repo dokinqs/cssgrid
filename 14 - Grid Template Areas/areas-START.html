@@ -35,7 +35,8 @@
         "sidebar-1 content sidebar-2"
         "sidebar-1 content sidebar-2"
         "footer    footer  footer"
-        /* "footer footer ." for none on last*/
+        /* for none on last */
+        /* "footer    footer  ."  */
     }
     .footer {
       grid-area: footer;
@@ -52,11 +53,13 @@
 
     @media (max-width: 700px) {
       .container {
-        background: red;
         grid-template-areas: 
         "content   content    content"
         "sidebar-1 sidebar-1  sidebar-2"
         "footer    footer     footer"
+      }
+      p {
+        font-size: 24px;
       }
     }
   </style>
