@@ -72,17 +72,18 @@
       grid-gap: 20px;
       height: 500px;
       border: 10px solid var(--pink);
-      grid-template-columns: repeat(5, 130px);
-      /* justify-items: center; */
-      /* align-items: center; */
-      place-items: stretch stretch;
+      grid-template-columns: repeat(5, 130px);      
+      /* x-axis equal space left right */
       justify-content: space-between;
+      /* y-axis not stretch into space up down */
       align-content: space-between;
+      /* opposite */
+      /* place-items: stretch stretch; */
       }
     .itm {
       background: white;
     }
-    .itm5 {
+    .itm5, .itm6 {
       justify-self: center;
       align-self: center;
     }
